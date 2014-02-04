@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    backrub (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (10.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  backrub!
+  bundler (~> 1.5)
+  rake
