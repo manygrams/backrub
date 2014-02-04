@@ -1,7 +1,7 @@
 require 'redis'
 
 module Backrub
-  VERSION = "0.0.1"
+  VERSION = "1.0.0"
 
   DEFAULT_BACKLOG_SIZE = 100
 
@@ -21,12 +21,19 @@ module Backrub
     raise ArgumentError.new "You have to pass at least one channel" if channels.count.zero?
 
     if channels.count == 1 && channels.first.is_a?(Hash)
-      channels.first.each do |channel, offset|
-        redis.lrange(channel, 0, offset - 1).reverse_each do |message|
-          yield channel, message
+      hash = channels.first
+
+      hash.each do |channel, offset|
+        if offset > 0
+          backlog = redis.lrange(channel, 0, offset - 1)
+
+          backlog.reverse_each do |message|
+            yield channel.to_s, message
+          end
         end
       end
-      channels = channels.first.keys
+
+      channels = hash.keys
     end
 
     begin

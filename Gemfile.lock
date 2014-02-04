@@ -7,6 +7,10 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    metaclass (0.0.2)
+    minitest (4.7.5)
+    mocha (1.0.0)
+      metaclass (~> 0.0.1)
     rake (10.1.1)
     redis (3.0.7)
 
@@ -16,4 +20,6 @@ PLATFORMS
 DEPENDENCIES
   backrub!
   bundler (~> 1.5)
+  minitest
+  mocha
   rake
