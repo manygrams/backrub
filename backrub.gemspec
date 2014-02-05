@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Backrub::VERSION
   spec.authors       = ["Bouke van der Bijl"]
   spec.email         = ["boukevanderbijl@gmail.com"]
-  spec.description = spec.summary = %q{Redis-based pubsub system with a backlog}
+  spec.description   = spec.summary = %q{Redis-based pubsub system with a backlog}
   spec.homepage      = ""
   spec.license       = "MIT"
 
