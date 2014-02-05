@@ -49,4 +49,10 @@ class BackrubTest < MiniTest::Unit::TestCase
       assert_equal second_channel_data.pop, message
     end
   end
+
+  def test_subscribing_to_no_channels_raises_argument_error
+    assert_raises ArgumentError do
+      Backrub.subscribe
+    end
+  end
 end
